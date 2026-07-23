@@ -98,7 +98,7 @@ linear-gradient(
     z-index:2;
 
     width:100%;
-    min-height:100vh;
+    min-height:95vh;
 
     display:flex;
     flex-direction:column;
@@ -106,7 +106,7 @@ linear-gradient(
     align-items:center;
 
     text-align:center;
-    padding:5px;
+    padding:10px;
 }
 
 .title{
