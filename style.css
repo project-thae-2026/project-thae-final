@@ -102,11 +102,11 @@ linear-gradient(
 
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-start;
     align-items:center;
 
     text-align:center;
-    padding:10px;
+    padding:40px;
 }
 
 .title{
