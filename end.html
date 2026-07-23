@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forever With You </title>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+
+body{
+
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,#311047,#08000f);
+
+    font-family:Georgia,serif;
+
+    color:white;
+
+}
+
+
+
+.end-page{
+
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+
+
+.stars{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    opacity:.4;
+
+}
+
+
+
+.content{
+
+    position:relative;
+
+    z-index:2;
+
+    animation:
+    fadeIn 6s ease,
+    floatText 3s ease-in-out infinite 6s;
+
+}
+
+
+
+h1{
+
+    font-size:45px;
+
+    text-shadow:
+    0 0 20px pink;
+
+}
+
+
+
+.message{
+
+    margin-top:30px;
+
+    font-size:18px;
+
+    line-height:2;
+
+    color:#ffd7e8;
+
+}
+#finishText{
+
+    margin-top:40px;
+
+    font-size:45px;
+
+    color:#ffd6f4;
+
+    text-shadow:
+    0 0 20px pink;
+
+}
+
+
+.heart{
+
+    font-size:70px;
+
+    margin-top:30px;
+
+    animation:pulse 1.5s infinite;
+
+}
+#musicBtn{
+
+    padding:15px 30px;
+
+    font-size:18px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#ff5fa2;
+
+    color:white;
+
+    cursor:pointer;
+
+    box-shadow:0 0 20px rgba(255,95,162,.5);
+
+    margin-bottom:30px;
+
+    transition:.3s;
+
+}
+
+#musicBtn:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+@keyframes pulse{
+
+    50%{
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:scale(0.3);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+@keyframes floatText{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+@keyframes moonGlow{
+
+    0%{
+
+        box-shadow:
+        0 0 20px #fff7d6,
+        0 0 60px #fff7d6,
+        0 0 120px rgba(255,247,214,0.8),
+        0 0 180px rgba(255,247,214,0.4);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 30px #fff7d6,
+        0 0 80px #fff7d6,
+        0 0 150px rgba(255,247,214,0.9),
+        0 0 220px rgba(255,247,214,0.5);
+
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 20px #fff7d6,
+        0 0 60px #fff7d6,
+        0 0 120px rgba(255,247,214,0.8),
+        0 0 180px rgba(255,247,214,0.4);
+
+    }
+
+}
+@keyframes moonFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+.moon{
+
+    position:absolute;
+
+    top:35px;
+    right:35px;
+
+    width:140px;
+    height:140px;
+
+    background:
+radial-gradient(circle at 35% 35%, #ffffff 0%, #fff7d6 45%, #f3d98b 100%);
+
+    border-radius:50%;
+
+    box-shadow:
+0 0 20px #fff7d6,
+0 0 60px #fff7d6,
+0 0 120px rgba(255,247,214,0.8),
+0 0 180px rgba(255,247,214,0.4);
+animation:moonGlow 4s infinite;
+z-index:0;
+animation:moonFloat 5s ease-in-out infinite;
+}
+.moon::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-25px;
+
+    border-radius:50%;
+
+    background:rgba(255,247,214,0.25);
+
+    filter:blur(20px);
+
+    z-index:-1;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="stars"></div>
+<div class="moon"></div>
+
+<div class="end-page">
+
+
+<div class="content">
+    <button id="musicBtn">
+
+🎵 Music အရင်ဖွင့်နော် သဲလေး 💝
+
+</button>
+
+
+<h1 id="endTitle"></h1>
+
+<div class="message" id="endMessage"></div>
+<h2 id="finishText"></h2>
+<div class="heart"></div>
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+
+</div>
+
+
+</div>
+
+<script>
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+const endTitle = document.getElementById("endTitle");
+const endMessage = document.getElementById("endMessage");
+const finishText = document.getElementById("finishText");
+const titleText = "The End";
+const finishMessage = "ပြီးပါပြီ";
+const messageText = `သဲရေ
+
+ဒီ Surprise လေးက
+
+သဲအတွက် ကိုယ်ပေးချင်တဲ့
+
+အမှတ်တရလေးတစ်ခုပါ။
+
+တန်ဖိုးကြီးလက်ဆောင်မဟုတ်ပေမယ့် ကိုအချိန်အများကြီးပေးပြီးလုပ်ထားတာပါ။
+
+သဲအတွက်အမှတ်တရဖြစ်ရင်ပဲ ကိုကျေနပ်ပါတယ်။
+
+စိတ်ဆိုးစိတ်ကောက်အောင်လုပ်ခဲ့မိတာတွေရှိခဲ့တဲ့အတွက်လည်း
+ ကို ဒီကနေတောင်းပန်လိုက်ပါရစေ။
+ 
+ အချိန်တွေကြာသွားခဲ့ပေမယ့်ဒီလူသားအချစ်ကသဲအပေါ်မှာတစ်စက်ကလေးမှမလျော့ပါဘူး။
+
+အမြဲတမ်း ချစ်တယ်။
+
+အမြဲတမ်း အနားမှာရှိပေးပါနော်။
+
+Forever With You
+Happy Birthday Thae I Love You Thae Lay 💝💝💝💝💝💝💝💝💝`;
+let titleIndex = 0;
+let messageIndex = 0;
+let finishIndex = 0;
+function typeTitle(){
+if(titleIndex < titleText.length){
+    endTitle.innerHTML += titleText.charAt(titleIndex);
+    titleIndex++;
+    setTimeout(typeTitle,700);
+}else{
+
+    typeMessage();
+
+}
+}
+
+function typeMessage(){
+
+    if(messageIndex < messageText.length){
+
+        endMessage.innerHTML += messageText.charAt(messageIndex);
+
+        messageIndex++;
+
+        setTimeout(typeMessage,300);
+
+    }else{
+
+    typeFinish();
+
+}
+
+}
+function typeFinish(){
+
+    if(finishIndex < finishMessage.length){
+
+        finishText.innerHTML += finishMessage.charAt(finishIndex);
+
+        finishIndex++;
+
+        setTimeout(typeFinish,500);
+
+    }else{
+
+        setTimeout(fadeOutMusic,3000);
+
+    }
+
+}
+function fadeOutMusic(){
+
+    let volume = 1;
+
+    let fade = setInterval(() => {
+
+        if(volume > 0){
+
+            volume -= 0.01;
+
+            bgMusic.volume = volume;
+
+        }else{
+
+            clearInterval(fade);
+
+            bgMusic.pause();
+
+        }
+
+    },300);
+
+}
+musicBtn.addEventListener("click", () => {
+
+    musicBtn.style.display = "none";
+    bgMusic.play().catch(error => {
+    console.log(error);
+});
+    typeTitle();
+
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Final Surprise</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    min-height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #0b1638,
+        #162a5a,
+        #020617
+    );
+
+    font-family:"Noto Serif Myanmar",serif;
+
+}
+
+
+/* moon */
+
+.moon{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    width:120px;
+    height:120px;
+
+    background:#fff5c4;
+
+    border-radius:50%;
+
+    z-index:0;
+
+    box-shadow:
+    0 0 40px rgba(255,245,196,0.8),
+    0 0 90px rgba(255,245,196,0.4);
+        animation:moonGlow 4s ease-in-out infinite;
+
+}
+
+
+/* stars */
+
+.star{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 10px white,
+    0 0 20px white;
+
+    animation:twinkle 3s infinite alternate;
+
+}
+
+
+@keyframes twinkle{
+
+    from{
+        opacity:0.3;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* main */
+
+.final-box{
+
+    width:90%;
+
+    text-align:center;
+
+    color:white;
+
+    z-index:2;
+
+}
+
+
+.final-box h1{
+
+    font-size:40px;
+
+    color:#ffd6e7;
+
+    margin-bottom:35px;
+
+    transform:translateY(25px);
+
+    animation:titleFade 3s ease-in-out infinite;
+
+}
+
+
+@keyframes titleFade{
+
+    0%{
+
+        opacity:1;
+
+        transform:translateY(25px) scale(1);
+
+    }
+
+
+    50%{
+
+        opacity:0.3;
+
+        transform:translateY(25px) scale(0.92);
+
+    }
+
+
+    100%{
+
+        opacity:1;
+
+        transform:translateY(25px) scale(1);
+
+    }
+
+}
+
+
+@keyframes titleMove{
+
+    0%{
+        transform:translateY(25px);
+    }
+
+    50%{
+        transform:translateY(15px);
+    }
+
+    100%{
+        transform:translateY(25px);
+    }
+
+}
+
+
+.message{
+
+    font-size:14px;
+
+    line-height:2;
+
+    color:#fff;
+
+}
+
+
+/* button */
+
+.next-btn{
+
+    display:inline-block;
+
+    margin-top:40px;
+
+    padding:15px 45px;
+
+    background:#ff5f9e;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:30px;
+
+    font-size:18px;
+
+    box-shadow:
+    0 5px 20px rgba(255,95,158,0.5);
+        opacity:0;
+        pointer-events:none;
+
+    transition:2s;
+
+}
+
+@keyframes moonGlow{
+
+    0%{
+
+        box-shadow:
+        0 0 40px rgba(255,245,196,0.8),
+        0 0 90px rgba(255,245,196,0.4);
+
+    }
+
+
+    50%{
+
+    box-shadow:
+    0 0 80px rgba(255,245,196,1),
+    0 0 160px rgba(255,220,150,0.8);
+
+}
+
+
+    100%{
+
+        box-shadow:
+        0 0 40px rgba(255,245,196,0.8),
+        0 0 90px rgba(255,245,196,0.4);
+
+    }
+
+}
+.bird{
+
+    position:absolute;
+
+    color:white;
+
+    font-size:22px;
+
+    z-index:1;
+
+    animation:birdFly 10s ease-in-out infinite;
+
+}
+
+
+.bird1{
+    top:20%;
+    left:15%;
+}
+
+.bird2{
+    top:35%;
+    left:75%;
+    animation-delay:2s;
+}
+
+.bird3{
+    top:55%;
+    left:25%;
+    animation-delay:4s;
+}
+
+.bird4{
+    top:45%;
+    left:60%;
+    animation-delay:6s;
+}
+
+.bird5{
+    top:70%;
+    left:45%;
+    animation-delay:8s;
+}
+
+
+
+@keyframes birdFly{
+
+    0%{
+
+        transform:translate(0,0) rotate(0deg);
+
+    }
+
+
+    25%{
+
+        transform:translate(60px,-30px) rotate(8deg);
+
+    }
+
+
+    50%{
+
+        transform:translate(0,-60px) rotate(-8deg);
+
+    }
+
+
+    75%{
+
+        transform:translate(-60px,-30px) rotate(8deg);
+
+    }
+
+
+    100%{
+
+        transform:translate(0,0) rotate(0deg);
+
+    }
+
+}
+.ribbon{
+    position:absolute;
+    bottom:75px;
+    left:85px;
+    width:50px;
+    height:35px;
+    z-index:5;
+}
+
+.knot{
+    position:absolute;
+    width:32px;
+    height:22px;
+    background:#ff5fa2;
+    border-radius:6px;
+    left:9px;
+    top:5px;
+}
+
+.tail{
+    position:absolute;
+    width:55px;
+    height:18px;
+    background:#ff5fa2;
+    top:8px;
+}
+
+.tail.left{
+    left:-35px;
+    transform:rotate(25deg);
+    clip-path:polygon(0 20%,100% 0,85% 100%,20% 80%);
+}
+
+.tail.right{
+    right:-35px;
+    transform:rotate(-25deg);
+    clip-path:polygon(0 0,100% 20%,80% 80%,15% 100%);
+}
+
+/* floating hearts */
+
+.heart{
+
+    position:absolute;
+
+    bottom:-20px;
+
+    color:#ff8fb8;
+
+    animation:float 6s linear infinite;
+
+}
+
+
+@keyframes float{
+
+    from{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-110vh);
+
+        opacity:0;
+
+    }
+
+}
+#musicBtn{
+
+    position:fixed;
+    top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+    width:200px;
+height:55px;
+
+    border:none;
+    border-radius:35px;
+
+    background:linear-gradient(135deg,#ff5fa2,#8b6dff);
+
+    color:white;
+
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+    box-shadow:
+0 0 20px rgba(255,95,162,.6);
+
+transition:.3s ease;
+
+    z-index:9999;
+
+}
+#musicBtn:hover{
+
+    transform:scale(1.06);
+
+    box-shadow:
+    0 0 25px #ff7ac8,
+    0 0 45px #8b6dff;
+
+}
+</style>
+
+</head>
+
+
+<body>
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+    <button id="musicBtn">
+    💝ဒီကနေစလိုက်ရအောင်သဲ🎵
+</button>
+
+
+<div class="moon"></div>
+
+
+<div class="star" style="top:15%;left:20%;"></div>
+<div class="star" style="top:25%;left:70%;"></div>
+<div class="star" style="top:40%;left:35%;"></div>
+<div class="star" style="top:10%;left:85%;"></div>
+<div class="star" style="top:60%;left:15%;"></div>
+<div class="star" style="top:20%;left:45%;"></div>
+<div class="star" style="top:35%;left:80%;"></div>
+<div class="star" style="top:55%;left:60%;"></div>
+<div class="star" style="top:75%;left:25%;"></div>
+<div class="star" style="top:85%;left:70%;"></div>
+<div class="star" style="top:65%;left:90%;"></div>
+<div class="star" style="top:45%;left:10%;"></div>
+<div class="star" style="top:30%;left:55%;"></div>
+<div class="star" style="top:80%;left:45%;"></div>
+<div class="star" style="top:12%;left:35%;"></div>
+
+
+<div class="final-box">
+
+
+<h1>
+သဲ... 
+</h1>
+
+
+<div class="message" id="typingText">
+
+</div>
+
+
+<a href="letter.html" class="next-btn" id="nextButton">
+
+ နောက်ဆုံးစာကို ဖတ်မယ်
+
+</a>
+
+
+</div>
+
+
+<div class="heart" style="left:20%;animation-delay:1s;"></div>
+
+<div class="heart" style="left:50%;animation-delay:3s;"></div>
+
+<div class="heart" style="left:80%;animation-delay:2s;"></div>
+
+
+<script>
+
+const text = `
+သဲရေဒီ Surprise Box က
+အမြင်မှာရိုးရှင်းနေတယ်ဆိုပေမယ့်
+ဒီလိုဖြစ်လာဖို့ ကို အချိန်တွေ
+ရက်တွေအများကြီးပေးပြီး လုပ်ခဲ့ရတာပါ
+သဲအတွက်အမှတ်တရဖြစ်စေချင်လို့ပါ
+ဒီခရီးလေးကို
+အဆုံးထိ လိုက်လာပေးလို့
+ကျေးဇူးတင်ပါတယ် 
+ဒါပေမယ့်...
+ကိုသဲကို နောက်တစ်ဆင့်
+ကြည့်စေချင်တာလေး
+ရှိသေးတယ်...
+
+ကိုပြောချင်တဲ့
+စကားလေးတချို့
+ကျန်သေးတယ် 
+`;
+
+let index = 0;
+
+function typing(){
+
+    if(index < text.length){
+
+        document.getElementById("typingText").innerHTML += 
+        text.charAt(index) === "\n" ? "<br>" : text.charAt(index);
+
+        index++;
+
+        setTimeout(typing,200);
+
+    }
+    else{
+
+    document.getElementById("nextButton").style.opacity="1";
+    document.getElementById("nextButton").style.pointerEvents = "auto";
+
+}
+
+}
+
+
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+
+musicBtn.addEventListener("click", () => {
+
+    bgMusic.play().catch(() => {});
+
+    musicBtn.style.display = "none";
+
+    typing();
+
+});
+</script>
+</body>
+
+</html>

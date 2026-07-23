@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Letter For Thae </title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+
+    margin:0;
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top,#3b174f,#120018);
+
+    overflow:hidden;
+
+    font-family:Georgia,serif;
+
+}
+
+
+.letter-page{
+
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    text-align:center;
+
+}
+
+
+.letter-title{
+
+    font-size:32px;
+    text-shadow:0 0 20px pink;
+
+}
+
+
+.letter-subtitle{
+
+    color:#ffd4e8;
+    margin-bottom:35px;
+
+}
+
+
+
+/* Envelope */
+
+.envelope-area{
+
+    height:260px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+.envelope{
+
+    width:300px;
+    height:170px;
+
+    position:relative;
+
+    transition:1s;
+
+}
+
+
+.envelope-back{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:#ff5c98;
+
+    border-radius:10px;
+
+    box-shadow:0 15px 30px #0008;
+
+}
+
+
+
+.envelope-flap{
+
+    position:absolute;
+
+    top:0;
+
+    width:0;
+    height:0;
+
+    border-left:150px solid transparent;
+    border-right:150px solid transparent;
+    border-top:90px solid #ff9fc6;
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:1;
+
+}
+
+
+
+/* Paper */
+
+.envelope-paper{
+
+    position:absolute;
+
+    width:270px;
+    height:520px;
+
+    background:#fff8ee;
+
+    left:20px;
+    bottom:0;
+
+    border-radius:8px;
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:1.5s;
+
+    z-index:2;
+
+}
+
+
+.paper-content{
+
+    padding:18px;
+
+    color:#7b3657;
+
+    line-height:1.5;
+
+    font-size:13px;
+
+    text-align:left;
+
+}
+
+
+
+/* Open Animation */
+
+
+.envelope.open{
+
+    transform:translateY(150px);
+
+}
+
+
+.envelope.open .envelope-flap{
+
+    transform:rotateX(180deg);
+
+}
+
+
+.envelope-paper.show{
+
+    opacity:1;
+
+    transform:translateY(-130px);
+
+}
+
+
+
+/* Button */
+
+
+button{
+
+    margin-top:120px;
+
+    padding:14px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#ff78ae,#ff2f7d);
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px #ff5c98aa;
+
+}
+
+
+
+button:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+
+#nextBtn{
+
+    display:none;
+
+}
+
+
+#musicBtn{
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:300px;
+    height:50px;
+
+    border:none;
+    border-radius:35px;
+
+    background:linear-gradient(135deg,#ff5fa2,#8b6dff);
+
+    color:#fff;
+
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 0 20px rgba(255,95,162,.6);
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+#openBtn{
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+</style>
+
+</head>
+
+
+<body>
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+
+<button id="musicBtn">
+🎵 သီချင်းလေး အရင်ဖွင့်နော်သဲ💝
+</button>
+
+
+<div class="letter-page">
+
+
+<h1 class="letter-title">
+A Letter Just For You 
+</h1>
+
+
+<p class="letter-subtitle">
+Something special from my heart...
+</p>
+
+
+
+<div class="envelope-area">
+
+
+<div class="envelope" id="envelope">
+
+
+<div class="envelope-back"></div>
+
+
+<div class="envelope-paper" id="paper">
+
+<div class="paper-content">
+
+<h2>My Dearest Thae </h2>
+
+<p id="typewriter"></p>
+
+
+</div>
+
+</div>
+
+
+<div class="envelope-flap"></div>
+
+
+</div>
+
+
+</div>
+
+
+
+<button id="openBtn">
+💝စာအိတ်ဖွင့်ကြည့်လိုက်သဲ💝
+</button>
+
+
+
+<button id="nextBtn">
+Continue Our Journey 
+</button>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+const openBtn=document.getElementById("openBtn");
+
+const envelope=document.getElementById("envelope");
+
+const paper=document.getElementById("paper");
+
+const textBox=document.getElementById("typewriter");
+
+const nextBtn=document.getElementById("nextBtn");
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+
+
+let message = 
+`Happy Birthday Par Thae 
+
+မွေးနေ့မှာ ပျော်ရွှင်ပါစေနော် သဲရေ။
+
+တန်ဖိုးကြီးတဲ့ လက်ဆောင်တစ်ခု မပေးနိုင်ပေမယ့်
+သဲအတွက် အချိန်တွေအများကြီးပေးပြီး
+ဒီ Surprise Box လေးကို သေသေချာချာလုပ်ပေးခဲ့တာပါ။
+
+ဒီ Box လေးကို ကြည့်ပြီးရင်
+ကို ဘယ်လောက်ထိ သဲအတွက် စိတ်နှစ်ပြီး
+လုပ်ပေးထားလဲဆိုတာ သဲခံစားမိမှာပါ။
+
+ကိုတို့ရဲ့ အိမ်ထောင်သက်တမ်းတစ်လျှောက်မှာ
+စိတ်ညစ်စရာတွေရှိခဲ့ကြတယ်။
+နားလည်မှုလွဲခဲ့တာတွေရှိခဲ့ကြတယ်။
+စိတ်ဆိုးစိတ်ကောက်ခဲ့တာတွေရှိခဲ့ကြတယ်။
+
+ဘာတွေပဲဖြစ်ခဲ့ဖြစ်ခဲ့
+အခုချိန်ထိ ကို့ရဲ့လက်ကိုဆွဲပြီး
+ကို့အနားမှာရှိနေပေးတဲ့အတွက်
+ကျေးဇူးတင်ပါတယ် သဲ။
+
+နောက်ထပ်အချိန်တွေမှာလည်း
+ကို့နားမှာပဲ ဆက်ရှိပေးပါနော်။
+
+အနာဂတ်မှာ
+ကိုရယ် သဲရယ် သားသားရယ်
+ကိုတို့မိသားစုလေး
+ပျော်ပျော်ရွှင်ရွှင်နေရအောင်
+ကို ကြိုးစားပေးမှာပါ။
+
+နောက်ဆုံးအချိန်ထိ
+ကို့နားမှာ ကျန်းကျန်းမာမာနဲ့
+ရှိနေပေးပါလို့ ကို ထပ်တောင်းဆိုပါစေ။
+
+အရမ်းချစ်တယ်နော် သဲ 
+
+သဲလည်း မွေးနေ့မှစပြီး
+ဘဝတစ်လျှောက်လုံး
+ဆန္ဒနဲ့ ဘဝ တစ်ထပ်တည်းကျပါစေလို့
+ကို ဆုတောင်းပေးပါတယ်။
+
+သဲရဲ့ကို `;
+
+
+
+let i=0;
+
+
+
+openBtn.onclick=function(){
+
+
+openBtn.style.display="none";
+
+
+envelope.classList.add("open");
+
+
+setTimeout(()=>{
+
+paper.classList.add("show");
+
+},800);
+
+
+
+setTimeout(()=>{
+
+typing();
+
+},1800);
+
+
+
+};
+
+
+musicBtn.onclick = function(){
+
+    bgMusic.play().catch(() => {});
+
+    musicBtn.style.display = "none";
+    openBtn.style.opacity = "1";
+openBtn.style.pointerEvents = "auto";
+
+};
+function typing(){
+
+
+if(i < message.length){
+
+
+textBox.innerHTML += message.charAt(i);
+
+i++;
+
+
+setTimeout(typing,200);
+
+
+}
+
+else{
+
+setTimeout(()=>{
+
+window.location.href="end.html";
+
+},3000);
+
+}
+
+
+}
+
+
+
+nextBtn.onclick=function(){
+
+location.href="final.html";
+
+};
+
+
+
+</script>
+
+
+</body>
+</html>
