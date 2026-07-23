@@ -111,7 +111,7 @@ linear-gradient(
 
 .title{
     font-family:'Great Vibes',cursive;
-    font-size:clamp(30px, 7vw, 46px);
+    font-size:50px;
     color:#ffd6f4;
     line-height:1.1;
     text-align:center;
