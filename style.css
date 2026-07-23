@@ -113,6 +113,9 @@ linear-gradient(
     font-family:'Great Vibes',cursive;
     font-size:clamp(42px, 10vw, 62px);
     color:#ffd6f4;
+    line-height:1.1;
+    text-align:center;
+    white-space:nowrap;
 }
 
 .name{
