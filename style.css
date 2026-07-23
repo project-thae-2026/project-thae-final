@@ -222,6 +222,10 @@ linear-gradient(
         font-size:16px;
         max-width:300px;
     }
+   .surprise-title{
+    font-size:36px;
+    white-space:nowrap;
+}
 
     #loadingScreen h1{
         font-size:34px;
@@ -261,7 +265,7 @@ linear-gradient(
 
 .surprise-title{
     font-family:'Great Vibes',cursive;
-    font-size:36px;
+    font-size:60px;
     color:#ffd6f4;
 }
 
