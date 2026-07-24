@@ -526,9 +526,9 @@ min-height:100dvh;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
+    justify-content:flex-start;
 
-    padding:30px 20px;
+padding:40px 20px;
 
     text-align:center;
     background:
