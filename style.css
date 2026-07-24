@@ -639,14 +639,14 @@ z-index:2;
 #continueBtn{
 position:relative;
 z-index:2;
-    width:140px;
-    height:45px;
+    width:135px;
+    height:41px;
 
     border:none;
 
     border-radius:25px;
 
-    font-size:16px;
+    font-size:13px;
 
     cursor:pointer;
 
