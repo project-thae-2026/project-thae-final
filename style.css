@@ -1170,3 +1170,33 @@ z-index:2;
     0 0 45px #9b5cff;
 
 }
+@media (max-width:600px){
+
+    .surprise-container{
+        padding:10px;
+    }
+
+    .surprise-title{
+        font-size:42px !important;
+    }
+
+    .surprise-name{
+        font-size:36px !important;
+    }
+
+    .surprise-message{
+        font-size:16px !important;
+        max-width:290px;
+    }
+
+    .cake{
+        transform:scale(0.9);
+        margin:5px 0;
+    }
+
+    #lightBtn,
+    #nextBtn{
+        width:220px;
+    }
+
+}
