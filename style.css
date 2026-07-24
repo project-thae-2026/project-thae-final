@@ -315,6 +315,12 @@ min-height:100dvh;
     line-height:1.5;
     font-size:18px;
 }
+.surprise-title,
+.surprise-name,
+.surprise-message{
+    position:relative;
+    top:-15px;
+}
 
 /* Premium Cake */
 
