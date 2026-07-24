@@ -225,6 +225,25 @@ min-height:100dvh;
     font-size:30px;
     white-space:nowrap;
 }
+.surprise-name{
+    font-size:36px;
+}
+
+.surprise-message{
+    font-size:16px;
+    max-width:290px;
+}
+
+.cake{
+    transform:scale(0.9);
+    margin:5px 0;
+}
+
+#lightBtn,
+#nextBtn{
+    width:220px;
+    font-size:16px;
+}
 
     #loadingScreen h1{
         font-size:34px;
