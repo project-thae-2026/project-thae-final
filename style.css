@@ -221,24 +221,29 @@ min-height:100dvh;
         font-size:16px;
         max-width:300px;
     }
-   .surprise-title{
-    font-size:30px;
-    white-space:nowrap;
-}
-.surprise-name{
-    font-size:36px;
-}
-
-.surprise-message{
-    font-size:16px;
-    max-width:290px;
-}
+   
 
 .cake{
     transform:scale(0.9);
     margin:5px 0;
 }
+.surprise-title{
+    font-size:30px;
+    white-space:nowrap;
+    margin-top:-35px;
+}
 
+.surprise-name{
+    font-size:36px;
+    margin-top:8px;
+}
+
+.surprise-message{
+    font-size:16px;
+    max-width:290px;
+    margin-top:10px;
+    margin-bottom:25px;
+}
 #lightBtn,
 #nextBtn{
     width:220px;
